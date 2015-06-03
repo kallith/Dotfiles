@@ -5,10 +5,10 @@ sh ~/.fehbg &
 # load X settings
 xrdb -merge ~/.Xresources &
 
-# 
+# start networkmanager system tray application
 nm-applet &
 
-# 
+# backup on my cloud
 owncloud &
 
 # clipboard manager
@@ -20,21 +20,14 @@ udevil monitor &
 # global env variables
 export EDITOR="vim"
 
-#multitouch
+# multitouch support, this prints A LOT so redirect to null
 touchegg 2> /dev/null &
 
-#typing delay and repeat rate
+# typing delay and repeat rate
 xset r rate 200 40
 
-# #bspwm panel env variables
-# PANEL_FIFO=/tmp/panel-fifo
-# PANEL_HEIGHT=24
-# PANEL_FONT_FAMILY="-*-terminus-medium-r-normal-*-12-*-*-*-c-*-*-1"
-# export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
-# sxhkd &
-# exec bspwm
-
+# list of explicitly installed applications on the cloud
+pacman -Qqe > ~/ownCloud/documents/yoga_packages.pacman
 
 # start window manager
 exec i3
-
