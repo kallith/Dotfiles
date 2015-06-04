@@ -5,7 +5,7 @@ Xft.rgba: rgb
 Xft.autohint: false Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
-#include "/home/kalli/.Xresources.d/.Xresources.chriskempson.base16-ocean.dark"
+#include "/home/kalli/.Xresources.d/chriskempson.base16-ocean.dark"
 
 !URxvt*font: xft:terminus-medium:pixelsize=32
 !URxvt*font: xft:DejaVu Sans Mono:pixelsize=32:antialias=true:hinting=true
