@@ -60,7 +60,7 @@ filetype indent on  "automaticly indent
 filetype plugin on  "use ftplugin.vim
 set t_Co=256        "Terminal supports 256 colors
 set background=dark "with dark bwombat
-colorscheme wombat
+colorscheme gruvbox
 " }}}
 " Indentation and tab settings {{{
 set expandtab
