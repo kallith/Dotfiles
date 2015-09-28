@@ -105,10 +105,8 @@ status.register("mail",
         color_unread=my_colors['red'],
         )
 
-
-
 status.register("shell",
-        command="~/bin/focusedwindow.sh",
+        command="xtitle -t 80",
         interval=1,
         color=my_colors['yellow']
         )

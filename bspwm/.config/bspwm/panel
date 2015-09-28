@@ -1,0 +1,66 @@
+#! /bin/sh
+
+if [ $(pgrep -cx panel) -gt 1 ] ; then
+	printf "%s\n" "The panel is already running." >&2
+	exit 1
+fi
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+[ -e "$PANEL_FIFO" ] && rm "$PANEL_FIFO"
+mkfifo "$PANEL_FIFO"
+
+bspc config top_padding $PANEL_HEIGHT
+bspc control --subscribe > "$PANEL_FIFO" &
+
+clock () {
+    while :; do
+        echo S$(date +"%d.%b,%T")
+        sleep 1
+    done
+}
+volume () {
+    while :; do
+        panel_volume
+        sleep 3
+    done
+}
+battery () {
+    while :; do
+        panel_battery
+        sleep 15
+    done
+}
+mpd () {
+    while :; do
+        panel_mpd &
+        PROCESS=$!
+        sleep 7
+        kill $PROCESS 2> /dev/null
+    done
+}
+internet () {
+    while :; do
+        panel_net
+        sleep 5
+    done
+}
+mail () {
+    panel_thunderbird
+}
+
+xtitle -t 50 -sf 'T %s ' > "$PANEL_FIFO" &
+clock > "$PANEL_FIFO" &
+battery > "$PANEL_FIFO" &
+volume > "$PANEL_FIFO" &
+mpd > "$PANEL_FIFO" &
+internet > "$PANEL_FIFO" &
+mail > "$PANEL_FIFO" &
+
+
+
+. panel_colors
+
+cat "$PANEL_FIFO" | panel_bar | lemonbar -u 3 -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
+
+wait

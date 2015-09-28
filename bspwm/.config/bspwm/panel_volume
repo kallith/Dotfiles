@@ -1,0 +1,12 @@
+#!/bin/sh
+INFO_LINE=$(amixer | head -n 6 | tail -n 1 | tr -d "]")
+RESULT=" ♪ $(cut -d"[" -f2 <<< $INFO_LINE | tr -d " " | tr -d "%" ) "
+MUTED=$(cut -d"[" -f3 <<< $INFO_LINE)
+    
+if [ $MUTED = 'off' ]; then
+    RESULT="%{U#FFFF0000}$RESULT%{U-}"
+elif [ $MUTED = 'on' ]; then
+    :
+fi
+
+echo "V$RESULT"

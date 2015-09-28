@@ -1,0 +1,25 @@
+#!/bin/bash
+IFS=' '
+read -a array <<< `acpi -b | tr -d ',' | cut -d' ' -f3-5`
+result=""
+
+NUM_COLORS=$(wc -l < /tmp/RYG_array)
+
+battery_percentage=`tr -d '%' <<< ${array[1]}`
+
+COLOR=$(sed -n $(( ($battery_percentage * ($NUM_COLORS - 1) / 100 + 1)))p /tmp/RYG_array)
+if [[ ${array[0]} == "Charging" ]]; then
+    symbol="↑"
+    #COLOR="#114477"
+elif  [[ ${array[0]} == "Discharging" ]]; then
+    symbol="↓"
+else
+    symbol="="
+fi
+
+result=" $symbol ${array[1]} $(cut -d':' -f 1,2 <<< ${array[2]}) "
+if [[ $(( $battery_percentage <= 7 )) == "1" && ${array[0]} == "Discharging" ]]; then
+    notify-send -u critical "Battery low" "$result remaining"
+fi
+result="%{U$COLOR}$result%{U-}"
+echo B$result

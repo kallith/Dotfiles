@@ -1,19 +1,24 @@
-Xft.dpi: 168
 Xft.antialias: true
+Xft.autohint: false
+Xft.dpi: 168
 Xft.hinting: true
-Xft.rgba: rgb
-Xft.autohint: false Xft.hintstyle: hintfull
+Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
+Xft.rgba: rgb
 
-#include "/home/kalli/.Xresources.d/chriskempson.base16-ocean.dark"
+! colorscheme
+#include "/home/kalli/.Xresources.d/baskerville_eldorado.dark"
 
-!URxvt*font: xft:terminus-medium:pixelsize=32
+!URxvt*font: xft:terminus-medium:size=32
+!URxvt*boldFont: xft:terminus:bold:size=32
 !URxvt*font: xft:DejaVu Sans Mono:pixelsize=32:antialias=true:hinting=true
 !URxvt*boldFont: xft:DejaVu Sans Mono:bold:pixelsize=12:antialias=true:hinting=true
-URxvt*font:  -xos4-terminus-medium-*-*-*-32-*-*-*-*-*-iso10646-1,xft:terminus:size=32:antialias=true
-URxvt*boldFont:  -xos4-terminus-bold-*-*-*-32-*-*-*-*-*-iso10646-1,xft:terminus:bold:size:32
-URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=32
-URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:pixelsize=32
+! URxvt*font:  -xos4-terminus-medium-*-*-*-32-*-*-*-*-*-iso10646-1,xft:terminus:size=32:antialias=true
+! URxvt*boldFont:  -xos4-terminus-bold-*-*-*-32-*-*-*-*-*-iso10646-1,xft:terminus:bold:size:32
+URxvt*font: xft:Bitstream Vera Sans Mono:autohint=true:size=11
+URxvt*boldFont: xft:Bitstream Vera Sans Mono:bold:autohint=true:size=11
+URxvt*italicFont:  xft:Bitstream Vera Sans Mono:italic:autohint=true:size=11
+URxvt*boldItalicFont:  xft:Bitstream Vera Sans Mono:bold:italic:autohint=true:size=11
 
 URxvt.scrollstyle: plain
 URxvt.scrollBar_right:                true
@@ -30,7 +35,7 @@ URxvt.scrollBar_right:                true
 ! URxvt*scrollBar:                      boolean
 ! URxvt*scrollBar_floating:             boolean
 ! URxvt*scrollBar_align:                mode
-! URxvt*thickness:                      number
+URxvt*thickness:                      1
 ! URxvt*scrollTtyOutput:                boolean
 ! URxvt*scrollTtyKeypress:              boolean
 ! URxvt*scrollWithBuffer:               boolean
@@ -91,7 +96,7 @@ URxvt*intensityStyles:                false
 ! URxvt*internalBorder:                 number
 ! URxvt*borderLess:                     boolean
 ! URxvt*lineSpace:                      number
-! URxvt*letterSpace:                    number
+URxvt*letterSpace:                    -1
 ! URxvt*skipBuiltinGlyphs:              boolean
 ! URxvt*pointerBlankDelay:              number
 ! URxvt*backspacekey:                   string
@@ -115,7 +120,10 @@ URxvt*iso14755_52:                    false
 ! URxvt*background.expr:                string
 ! URxvt*background.interval:            seconds
 ! URxvt*bell-command:                   string
-URxvt*matcher.button:                 1
+URxvt.matcher.button:                 1
+URxvt.matcher.pattern.1:  \\B(/\\S+?):(\\d+)(?=:|$)
+URxvt.matcher.launcher.1: gvim +$2 $1
+
 ! URxvt*matcher.launcher:               string
 ! URxvt*matcher.launcher.*:             string
 ! URxvt*matcher.pattern.*:              string
@@ -134,10 +142,10 @@ URxvt*matcher.button:                 1
 URxvt*url-launcher:                   /usr/bin/firefox
 
 ! font keybindings
-URxvt.keysym.C-Up:     perl:font-size:increase
-URxvt.keysym.C-Down:   perl:font-size:decrease
-URxvt.keysym.C-S-Up:   perl:font-size:incglobal
-URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt*.keysym.C-Up:     perl:font-size:increase
+URxvt*.keysym.C-Down:   perl:font-size:decrease
+!URxvt*.keysym.C-S-Up:   perl:font-size:incglobal
+!URxvt*.keysym.C-S-Down: perl:font-size:decglobal
 
 ! Compile xft: Attempt to find a visual with the given bit depth; option -depth.
 ! URxvt*depth: bitdepth

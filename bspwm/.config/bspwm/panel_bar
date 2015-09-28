@@ -1,0 +1,174 @@
+#! /bin/sh
+#
+# Example panel for LemonBoy's bar
+
+. panel_colors
+
+num_mon=$(bspc query -M | wc -l)
+
+while read -r line ; do
+	case $line in
+		S*)
+			# clock output
+			sys_infos="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{A3:/home/kalli/.config/bspwm/stalonetray.sh&:}\
+%{A:gsimplecal&:}\
+%{+u}\
+ ${line#?} \
+%{-u}\
+%{A}\
+%{A}\
+%{U-}%{B-}%{F-}"
+			;;
+		T*)
+			# xtitle output
+			title="\
+%{F$COLOR_TITLE_FG}\
+%{B$COLOR_TITLE_BG}\
+%{U$COLOR_STATUS_UL}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{A}\
+%{U-}%{B-}%{F-}"
+			;;
+        M*)
+			mpd="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{A:mpc toggle || mpd&:}\
+%{A2:mpc next&:}\
+%{A3:urxvtc -name floatterm -e ncmpcpp&:}\
+%{A4:mpc seek +5&:}\
+%{A5:mpc seek -5&:}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{A}%{A}%{A}%{A}%{A}\
+%{U-}%{B-}%{F-}"
+            ;;
+        B*)
+			battery="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{U-}%{B-}%{F-}"
+            ;;
+        V*)
+			volume="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{A:pavucontrol&:}\
+%{A2:urxvtc -name floatterm -e alsamixer&:}\
+%{A3:pactl set-sink-mute 1 toggle&:}\
+%{A4:pactl set-sink-volume 1 +5%&:}\
+%{A5:pactl set-sink-volume 1 -5%&:}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{A}%{A}%{A}%{A}%{A}\
+%{U-}%{B-}%{F-}"
+            ;;
+        E*)
+            email="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{U-}%{B-}%{F-}"
+            ;;
+        N*)
+			internet="\
+%{F$COLOR_STATUS_FG}\
+%{B$COLOR_STATUS_BG}\
+%{U$COLOR_STATUS_UL}\
+%{A:nm-connection-editor&:}\
+%{A3:rfkill block wlan && sleep 1 && rfkill unblock wlan&:}\
+%{+u}\
+${line#?}\
+%{-u}\
+%{A}%{A}\
+%{U-}%{B-}%{F-}"
+            ;;
+		W*)
+			# bspwm internal state
+			wm_infos=""
+			IFS=':'
+			set -- ${line#?}
+			while [ $# -gt 0 ] ; do
+				item=$1
+				name=${item#?}
+                # rember to #define N 200 in lemonbar.c
+                # note to self shouldn't be hard to
+                # make the A stack dynamic 
+                oldname=$name
+                name="%{A:bspc desktop -f ${name}:} ${name} %{A}"
+				case $item in
+					M*)
+						# active monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos %{F$COLOR_ACTIVE_MONITOR_FG}%{B$COLOR_ACTIVE_MONITOR_BG}${name}%{B-}%{F-}  "
+						fi
+						;;
+					m*)
+						# inactive monitor
+						if [ $num_mon -gt 1 ] ; then
+							wm_infos="$wm_infos %{F$COLOR_INACTIVE_MONITOR_FG}%{B$COLOR_INACTIVE_MONITOR_BG}${name}%{B-}%{F-}  "
+						fi
+						;;
+					O*)
+						# focused occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_OCCUPIED_FG}%{B$COLOR_FOCUSED_OCCUPIED_BG}%{U$COLOR_FOREGROUND}%{+u}${name}%{-u}%{B-}%{F-}"
+						;;
+					F*)
+						# focused free desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_FREE_FG}%{B$COLOR_FOCUSED_FREE_BG}%{U$COLOR_FOREGROUND}%{+u}${name}%{-u}%{B-}%{F-}"
+						;;
+					U*)
+						# focused urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_FOCUSED_URGENT_FG}%{B$COLOR_FOCUSED_URGENT_BG}%{U$COLOR_FOREGROUND}%{+u}${name}%{-u}%{B-}%{F-}"
+						;;
+					o*)
+						# occupied desktop
+						wm_infos="${wm_infos}%{F$COLOR_OCCUPIED_FG}%{B$COLOR_OCCUPIED_BG}${name}%{B-}%{F-}"
+						;;
+					f*)
+						# free desktop
+						:#wm_infos="${wm_infos}%{F$COLOR_FREE_FG}%{B$COLOR_FREE_BG}${name}%{B-}%{F-}"
+						;;
+					u*)
+						# urgent desktop
+						wm_infos="${wm_infos}%{F$COLOR_URGENT_FG}%{B$COLOR_URGENT_BG}${name}%{B-}%{F-}"
+						;;
+					L*)
+						# layout
+                        # I do not even know what the letters mean
+                        case $oldname in 
+                            M)
+                                wm_infos="$wm_infos%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}${oldname}%{B-}%{F-}"
+                                ;;
+                            T)
+                                :#wm_infos="$wm_infos  %{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}[${name}]%{B-}%{F-}"
+                                ;;
+                            *)
+                                wm_infos="$wm_infos%{F$COLOR_LAYOUT_FG}%{B$COLOR_LAYOUT_BG}${oldname}%{B-}%{F-}"
+                                ;;
+                        esac
+						;;
+				esac
+				shift
+			done
+			;;
+	esac
+	printf "%s\n" "%{l}%{A4:bspc desktop -f prev:}%{A5:bspc desktop -f next:}${wm_infos}%{A}%{A} ${title}%{r}${mpd} ${email} ${internet} ${volume} ${battery} ${sys_infos} "
+done

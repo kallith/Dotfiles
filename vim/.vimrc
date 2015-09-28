@@ -1,4 +1,8 @@
 " vim:fdm=marker
+if v:progname =~? "gvim"
+    set guioptions=
+    set guifont=Bitstream\ Vera\ Sans\ Mono\ 12,Fixed\ 12
+endif
 " evim exit {{{
 if v:progname =~? "evim"
   finish
@@ -12,6 +16,7 @@ Plugin 'gmarik/Vundle.vim'              "Plugin manager
 Plugin 'tpope/vim-fugitive'             "git support
 Plugin 'chriskempson/base16-vim'        "colorschemes
 Plugin 'flazz/vim-colorschemes'         "colorschemes
+Plugin 'lilydjwg/colorizer'             "display hexcolors inline
 Plugin 'kien/ctrlp.vim'                 "fuzzy file finder
 Plugin 'LaTeX-Box-Team/LaTeX-Box'       "lightweight latex-plugin
 Plugin 'itchyny/lightline.vim'          "statusline
@@ -61,6 +66,9 @@ filetype plugin on  "use ftplugin.vim
 set t_Co=256        "Terminal supports 256 colors
 set background=dark "with dark bwombat
 colorscheme gruvbox
+
+set list
+set lcs=tab:\|\ ,trail:~,extends:>,precedes:>
 " }}}
 " Indentation and tab settings {{{
 set expandtab
@@ -102,4 +110,37 @@ set splitright                  " :vspl on right
 " }}}
 " Other file types {{{
 autocmd BufNewFile,BufRead *.sage   set syntax=python
+augroup filetype
+   au BufRead,BufNewFile *.flex,*.jflex    set filetype=jflex
+ augroup END
+ au Syntax jflex    so ~/.vim/ftplugin/jflex.vim
+" }}}
+" Functions {{{
+function! RangeChooser()
+    let temp = tempname()
+    " The option "--choosefiles" was added in ranger 1.5.1. Use the next line
+    " with ranger 1.4.2 through 1.5.0 instead.
+    "exec 'silent !ranger --choosefile=' . shellescape(temp)
+    exec 'silent !ranger --choosefiles=' . shellescape(temp)
+    if !filereadable(temp)
+        redraw!
+        " Nothing to read.
+        return
+    endif
+    let names = readfile(temp)
+    if empty(names)
+        redraw!
+        " Nothing to open.
+        return
+    endif
+    " Edit the first item.
+    exec 'edit ' . fnameescape(names[0])
+    " Add any remaning items to the arg list/buffer list.
+    for name in names[1:]
+        exec 'argadd ' . fnameescape(name)
+    endfor
+    redraw!
+endfunction
+command! -bar RangerChooser call RangeChooser()
+nnoremap <leader>r :<C-U>RangerChooser<CR>
 " }}}

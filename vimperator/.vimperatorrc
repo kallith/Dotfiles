@@ -1,7 +1,19 @@
 :set gui=nonavigation
 
-noremap <silent> J :tabnext<CR>
-noremap <silent> K :tabNext<CR>
+noremap <silent> J :tabNext<CR>
+noremap <silent> K :tabnext<CR>
+
+noremap <silent> j jjj
+noremap <silent> k kkk
+
+set focuscontent
+set ignorecase=true
+set smartcase=true
+
+colorscheme vimpwhite
+
+
+set hintchars=hgjfkdlsayturieowpqbvncmxz
 
 noremap <silent> <F8> :js toggle_bottombar()<CR>
 :js << EOF

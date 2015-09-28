@@ -138,7 +138,7 @@ bindsym $mod+Shift+0 move container to $ws0
 
 # multiscreen move
 bindsym $mod+Shift+z move workspace to output left
-bindsym $mod+Shift+x move workspace to output right
+bindsym $mod+Shift+x move workspace to output down
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -172,7 +172,9 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
         #status_command i3status
+        tray_output eDP1
         status_command python ~/.i3/pystatus.py
+        #status_command i3blocks
         position          top
         workspace_buttons yes
         strip_workspace_numbers yes
@@ -242,13 +244,14 @@ mode "passthrough" {
     bindsym $mod+Escape mode "default"
 }
 bindsym $mod+Escape mode "passthrough"
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown (f) fancylock.sh
 mode "$mode_system" {
     bindsym l exec --no-startup-id slimlock, mode "default"
     bindsym e exec --no-startup-id i3-msg exit, mode "default"
     bindsym s exec --no-startup-id slimlock && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym f exec --no-startup-id /home/kalli/bin/fancylock.sh, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
     # back to normal: Enter or Escapj
@@ -287,3 +290,4 @@ assign [class="^Thunderbird$"] 10: X
 # Autostart
 exec --no-startup-id thunderbird
 exec --no-startup-id firefox
+

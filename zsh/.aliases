@@ -1,3 +1,5 @@
+# cputemp
+alias cputemp='sensors -u | grep temp1_input | cut -d" " -f4 | cut -d. -f1 | tail -n 1'
 # mpv alias
 alias mpv-cam='mpv tv:// --tv=width=320:height=240 --no-border --ontop --really-quiet'
 alias mpv-mirror='mpv tv:// --vf=mirror'
@@ -34,6 +36,11 @@ if [ -x /bin/dircolors ]; then
     # alias fgrep='fgrep --color=auto'
     # alias egrep='egrep --color=auto'
 fi
+
+# I'll learn emacs keys later
+alias info='info --vi-keys'
+
+alias gvim='gvim --remote-silent'
 
 alias m='make'
 alias mc='make clean'
@@ -99,4 +106,12 @@ man() {
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
+}
+tw() {
+    echo -n "task> "
+    while read line
+        do
+            task $line
+            echo -n "task> "
+        done
 }

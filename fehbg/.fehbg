@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale '/home/kalli/Pictures/wallpapers/city.gif' 
+feh  --bg-fill '/home/kalli/Pictures/wallpapers/current' 

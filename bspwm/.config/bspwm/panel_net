@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NUM_COLORS=$(wc -l < /tmp/RYG_array)
+
+PERCENTAGE=`iwconfig 2> /dev/null | grep 'Link Quality=' | awk '{gsub(/[=/]/," "); print int($3/$4*100)}'`
+
+if [ ! $PERCENTAGE ] ; then
+    RESULT="No Connection"
+    COLOR=${COLORS[0]}
+    COLOR=$(sed -n 1p /tmp/RYG_array)
+else
+    COLOR=$(sed -n $(( ($PERCENTAGE * ($NUM_COLORS - 1) / 100 + 1)))p /tmp/RYG_array)
+    ADDR=$(ip route get 8.8.8.8 | awk 'NR==1 {print $NF}')
+    #IP=$(iwconfig 2> /dev/null | grep ESSID | sed -e 's/.*ESSID:"\(.*\)".*/\1/')
+    #RESULT="${IP:0:30}($ADDR)$PERCENTAGE%"
+    RESULT="$ADDR $PERCENTAGE%"
+
+fi
+
+RESULT="%{U$COLOR} $RESULT %{U-}"
+echo N$RESULT
