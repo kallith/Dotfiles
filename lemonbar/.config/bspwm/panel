@@ -32,12 +32,7 @@ battery () {
     done
 }
 mpd () {
-    while :; do
-        panel_mpd &
-        PROCESS=$!
-        sleep 7
-        kill $PROCESS 2> /dev/null
-    done
+    panel_mpd
 }
 internet () {
     while :; do
