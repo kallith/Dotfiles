@@ -1,15 +1,16 @@
 # Dotfiles
 
-My configuration files, ready to be `stow`-ed
+My configuration files, ready to be [stow](http://www.gnu.org/software/stow/)-ed
 
-## Some dependencies
+## Some (unclear) dependencies
 
 * Lemonbar
-    * [thunderbird-dbus-sender]: https://github.com/janoliver/thunderbird-dbus-sender
-    * [zscroll]: https://github.com/noctuid/zscroll
+    * [thunderbird-dbus-sender](https://github.com/janoliver/thunderbird-dbus-sender)
+    * [zscroll](https://github.com/noctuid/zscroll)
+    * [xtitle](https://github.com/baskerville/xtitle)
     * alsa-utils (`amixer`)
     * acpi (battery info)
-* sxhkd/bspwm
-    * dmenu
+* sxhkd
+    * dmenu (for multiple choice keybinds)
 * stalonetray
-    * `xdotool`
+    * `xdotool` (toggle stalonetray from lemonbar)
