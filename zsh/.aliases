@@ -8,12 +8,8 @@ alias mpv-mandelbrot='mpv avdevice://lavfi:mandelbrot'
 # login to root using users env
 alias sudosu='sudo -E zsh'
 
-# common traversals, colors and more
-
 alias cd..='cd ..'
-alias cdf='cd $(ls | head -n1)'
 alias ..='cd ..'
-alias fdl='fdisk -l'
 alias ll='ls -lh'
 alias la='ls -A'
 alias l='ls -CF'
@@ -24,18 +20,6 @@ alias f='find'
 # directory stacks
 alias o='popd'
 alias p='pushd'
-
-# Colors if they are supported
-if [ -x /bin/dircolors ]; then
-    eval "`dircolors -b`"
-    # alias ls='ls --color=auto --group-directories-first'
-    # alias dir='dir --color=auto'
-    # alias vdir='vdir --color=auto'
-
-    # alias grep='grep --color=auto'
-    # alias fgrep='fgrep --color=auto'
-    # alias egrep='egrep --color=auto'
-fi
 
 # I'll learn emacs keys later
 alias info='info --vi-keys'
@@ -56,9 +40,9 @@ alias mv='mv -i'
 alias mount="mount | column -t"
 
 # ZSH aliases
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
+#alias -g ...='../..'
+#alias -g ....='../../..'
+#alias -g .....='../../../..'
 alias -g CA="2>&1 | cat -A"
 alias -g C='| wc -l'
 alias -g D="DISPLAY=:0.0"
@@ -83,7 +67,6 @@ alias -g M='| more'
 alias -g NE="2> /dev/null"
 alias -g NS='| sort -n'
 alias -g NUL="> /dev/null 2>&1"
-alias -g PIPE='|'
 alias -g R=' > /c/aaa/tee.txt '
 alias -g RNS='| sort -nr'
 alias -g S='| sort'
@@ -106,12 +89,4 @@ man() {
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
-}
-tw() {
-    echo -n "task> "
-    while read line
-        do
-            task $line
-            echo -n "task> "
-        done
 }
