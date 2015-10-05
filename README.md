@@ -17,4 +17,4 @@ My configuration files, ready to be [stow](http://www.gnu.org/software/stow/)-ed
 
 ## Notes on HiDPI
 
-There is a small script in `scripts/bin/apply_no_hidpi.sh` which tries to remove all hidpi settings
+There is a small script `apply_no_hidpi.sh` which tries to remove all hidpi settings
