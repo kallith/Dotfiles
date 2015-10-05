@@ -14,3 +14,7 @@ My configuration files, ready to be [stow](http://www.gnu.org/software/stow/)-ed
     * dmenu (for multiple choice keybinds)
 * stalonetray
     * `xdotool` (toggle stalonetray from lemonbar)
+
+## Notes on HiDPI
+
+There is a small script in `scripts/bin/apply_no_hidpi.sh` which tries to remove all hidpi settings
