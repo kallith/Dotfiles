@@ -16,8 +16,18 @@ let g:LatexBox_Folding          = 1   " Turn on/off folding
 "let g:LatexBox_fold_envs        = 1   " Turn on/off folding of environments
 "let g:LatexBox_fold_toc         = 1   " Turn on/off folding of TOC
 "let g:LatexBox_fold_toc_levels  = 1   " Set max TOC fold level
+
+let g:LatexBox_latexmk_async    = 1             "compile in background
+let g:LatexBox_latexmk_preview_continuously = 1 "compile continuously
+let g:LatexBox_quickfix=2                       "so quickfix does not steal cursor
 set et sw=2 ts=2
 
 "wrap words
 set wrap
 set linebreak
+
+" Setup autosave plugin, on by default, disable with :AutoSaveToggle
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+let g:auto_save_silent = 1  " do not display the auto-save notification
+let g:auto_save_events = ["InsertLeave", "TextChanged"] "only save when leaving insert and/or something changed
