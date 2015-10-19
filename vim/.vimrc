@@ -26,7 +26,7 @@ Plugin 'vim-pandoc/vim-pandoc'          "markdown plugin
 Plugin 'vim-pandoc/vim-pandoc-syntax'   "with syntax highlighting
 Plugin 'tpope/vim-surround'             "extend surround 
 Plugin 'tpope/vim-repeat'               "repeat functionality for tpope plugins
-Plugin 'vim-scripts/vim-auto-save'                  "Autosave, tryout for latex setup
+Plugin '907th/vim-auto-save'                  "Autosave, tryout for latex setup
 call vundle#end()
 " }}}
 " Plugin settings {{{
