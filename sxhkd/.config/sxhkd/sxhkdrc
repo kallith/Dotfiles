@@ -144,7 +144,7 @@ super + shift + f
     urxvtc -e zsh -c 'ranger'
 
 super + Pause
-    dmenu-command-choice.sh systemctl suspend shutdown reboot
+    dmenu-command-choice.sh systemctl suspend poweroff reboot
 
 # fn+f10(mod+p) screen buttons
 super + p; x
