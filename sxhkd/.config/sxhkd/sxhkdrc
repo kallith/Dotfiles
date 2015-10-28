@@ -134,11 +134,11 @@ super + shift + d
     i3-dmenu-desktop --dmenu="dmenu -i -l 10 -fn '-xos4-terminus-medium-*-*-*-30-*-*-*-*-*-*-*'"
 
 XF86Audio{Lower,Raise}Volume
-    pactl set-sink-volume 1 {-,+}10%
+    pactl set-sink-volume 0 {-,+}10%
 
 # super+o is the side button
 {super + o,XF86AudioMute}
-    pactl set-sink-mute 1 toggle
+    pactl set-sink-mute 0 toggle
 
 super + shift + f
     urxvtc -e zsh -c 'ranger'

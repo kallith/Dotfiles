@@ -26,6 +26,8 @@ Plugin 'vim-pandoc/vim-pandoc'          "markdown plugin
 Plugin 'vim-pandoc/vim-pandoc-syntax'   "with syntax highlighting
 Plugin 'tpope/vim-surround'             "extend surround 
 Plugin 'tpope/vim-repeat'               "repeat functionality for tpope plugins
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 Plugin '907th/vim-auto-save'                  "Autosave, tryout for latex setup
 call vundle#end()
 " }}}
@@ -43,6 +45,13 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+" }}}
+" NERDtree{{{
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsListSnippets="<c-tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 " NERDtree{{{
 nnoremap <silent> <c-t> :NERDTreeToggle<CR>
@@ -67,6 +76,7 @@ filetype plugin on  "use ftplugin.vim
 set t_Co=256        "Terminal supports 256 colors
 set background=dark "with dark bwombat
 colorscheme gruvbox
+let g:gruvbox_contrast = 'hard'
 
 set list
 set lcs=tab:\|\ ,trail:~,extends:>,precedes:>

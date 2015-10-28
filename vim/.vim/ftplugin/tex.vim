@@ -8,7 +8,7 @@ command PDF silent !zathura `echo % | sed -e 's/tex$/pdf/'` 2>/dev/null & disown
 "let g:tex_fold_additional_envs = ['solution', 'problem', 'enumerate', 'tabular', 'center', 'itemize']
 
 "latex-box
-let g:LatexBox_Folding          = 1   " Turn on/off folding
+let g:LatexBox_Folding          = 0   " Turn on/off folding
 "let g:LatexBox_fold_text        = 1   " Turn on/off LatexBox fold text function
 "let g:LatexBox_fold_preamble    = 1   " Turn on/off folding of preamble
 "let g:LatexBox_fold_parts       = 1   " Define parts (eq. appendix, frontmatter) to fold
@@ -27,7 +27,7 @@ set wrap
 set linebreak
 
 " Setup autosave plugin, on by default, disable with :AutoSaveToggle
-let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save = 0  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 let g:auto_save_silent = 1  " do not display the auto-save notification
 let g:auto_save_events = ["InsertLeave", "TextChanged"] "only save when leaving insert and/or something changed
