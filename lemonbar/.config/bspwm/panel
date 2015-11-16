@@ -44,6 +44,8 @@ mail () {
     panel_thunderbird
 }
 
+. panel_colors
+
 xtitle -t 50 -sf 'T %s ' > "$PANEL_FIFO" &
 clock > "$PANEL_FIFO" &
 battery > "$PANEL_FIFO" &
@@ -54,8 +56,7 @@ mail > "$PANEL_FIFO" &
 
 
 
-. panel_colors
 
-cat "$PANEL_FIFO" | panel_bar | lemonbar -u 3 -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
+cat "$PANEL_FIFO" | panel_bar | lemonbar -u 3 -a 100 -g x$PANEL_HEIGHT -f "$PANEL_FONT_FAMILY" -f "$PANEL_FONT_FAMILY" -F "$COLOR_FOREGROUND" -B "$COLOR_BACKGROUND" | sh &
 
 wait
