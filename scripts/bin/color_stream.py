@@ -2,7 +2,7 @@
 import sys
     
 def string_to_rgb(s):
-    res =  [int(s[i:i+2],16) for i in range(0,len(s),2)]
+    res =  [int(s[i:i+2],16) for i in range(1,len(s),2)]
     return res
 
 def rgb_to_string(lis):
