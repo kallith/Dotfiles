@@ -2,10 +2,11 @@
 import sys
     
 def string_to_rgb(s):
-    return [int(s[i:i+2],16) for i in range(1,len(s),2)]
+    res =  [int(s[i:i+2],16) for i in range(0,len(s),2)]
+    return res
 
 def rgb_to_string(lis):
-    res = "#CD"
+    res = "#"
     for item in lis:
         res += "%02x" % item
     return res
@@ -13,7 +14,11 @@ def rgb_to_string(lis):
 def fade(astr,bstr,n):
     a = string_to_rgb(astr)
     b = string_to_rgb(bstr)
-    step = [(b[i] - a[i])/n for i in range(len(a))]
+    if len(a) == 4:
+        step = [0]
+    else:
+        step = []
+    step += [(b[i] - a[i])/n for i in range(len(a)-3, len(a))]
     for _ in range(n-1):
         a=[sum(x) for x in zip(a,step)]
         print(rgb_to_string([int(e) for e in a]))

@@ -172,3 +172,4 @@ super + Escape
 # inc/dec opacity of current window
 super + shift + {Up, Down}
     compton-trans -c {+5,-- -5}
+

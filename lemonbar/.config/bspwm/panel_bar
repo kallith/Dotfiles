@@ -90,14 +90,13 @@ ${line#?}\
 			internet="\
 %{F$COLOR_STATUS_FG}\
 %{B$COLOR_STATUS_BG}\
-%{U$COLOR_STATUS_UL}\
 %{A:nm-connection-editor&:}\
 %{A3:rfkill block wlan && sleep 1 && rfkill unblock wlan&:}\
 %{+u}\
 ${line#?}\
 %{-u}\
 %{A}%{A}\
-%{U-}%{B-}%{F-}"
+%{B-}%{F-}"
             ;;
 		W*)
 			# bspwm internal state
