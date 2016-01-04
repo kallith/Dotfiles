@@ -12,8 +12,11 @@ set smartcase=true
 
 colorscheme vimpwhite
 
+noremap B :tabgroups switch 
+
 
 set hintchars=hgjfkdlsayturieowpqbvncmxz
+set hintchars=dhtnseriaoplfuwyq;bkgjvmcxz
 
 noremap <silent> <F8> :js toggle_bottombar()<CR>
 :js << EOF
