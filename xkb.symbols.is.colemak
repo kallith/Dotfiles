@@ -1,0 +1,21 @@
+// This is a small modification to the Colemak layout which is already
+// fine for writing Icelandic amongst other international letters.
+
+// Each acute vowel had level 3 switches on their respective non-acute vowel
+// apart from y so ý is now in place of ü. Other special characters eth (ðÐ),
+// thorn(þÞ), ae(æÆ), odiaeresis(öÖ) are now in the home-row.
+partial alphanumeric_keys
+xkb_symbols "colemak" {
+
+    include "us(colemak)"
+    name[Group1]= "Icelandic (Colemak)";
+
+    key <AD09> { [            y,            Y,          yacute,           Yacute ] };
+    key <AC02> { [            r,            R,      odiaeresis,       Odiaeresis ] };
+    key <AC03> { [            s,            S,              ae,               AE ] };
+    key <AC04> { [            t,            T,           thorn,            Thorn ] };
+    key <AC05> { [            d,            D,             eth,              ETH ] };
+    key <LSGT> { [        minus,   underscore,          endash,           emdash ] };
+
+    include "level3(ralt_switch)"
+};
