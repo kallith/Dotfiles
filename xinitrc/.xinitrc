@@ -47,8 +47,9 @@ xset r rate 200 40
 pacman -Qqe > ~/ownCloud/documents/yoga_packages.pacman
 
 compton -CGb
-sxhkd &
+sxhkd -m -1 &
 stalonetray &
+setxkbmap is -variant colemak -option caps:swapescape
 exec bspwm
 # start window manager
 #exec i3
