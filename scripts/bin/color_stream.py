@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-import sys
-    
+
 def string_to_rgb(s):
     res =  [int(s[i:i+2],16) for i in range(1,len(s),2)]
     return res
@@ -26,8 +25,10 @@ def fade(astr,bstr,n):
 
 
 def main():
-    if len(sys.argv) <= 2:
-        print("please provide more colors in #RRGGBB format")
+    import sys
+    num_args = len(sys.argv)
+    if num_args <= 2:
+        print("please provide at least {} more color(s) in #RRGGBB format".format(3-num_args))
     colors = sys.argv[1:]
     for i in range(1,len(colors)):
         fade(colors[i-1],colors[i],16)
