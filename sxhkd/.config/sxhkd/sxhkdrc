@@ -7,12 +7,12 @@ super + alt + Escape
 	pkill -x panel; bspc quit
 
 # reload panel
-super + shift + R
+super + shift + alt + R
     pkill -x panel; ${HOME}/.config/bspwm/bspwmrc
 
 # close window
 {super + shift + q, alt + F4}
-	bspc window -c
+	bspc node -c
 
 # Switch between tiled/monacle layouts
 super + t
@@ -20,82 +20,82 @@ super + t
 
 # choose focused window propertie
 super + shift + t
-    dmenu-command-choice.sh "bspc window -t" floating fullscreen pseudo_tiled locked sticky private
+    dmenu-command-choice.sh "bspc node" "-t ~pseudo_tiled" "-g locked" "-g sticky" "-g private"
 
 # rotate the windows clockwise
-super + r
-    bspc desktop -R 90
+super + {_,shift + }r
+    bspc node @focused:/ -R {90,270}
 
 # reset the split ratios of the tree
 super + e
-    bspc desktop -E
+    bspc node @focused:/ -E
 
 # reset the split so all windows have the same area
 super + b
-	bspc desktop -B
+	bspc node @focused:/ -B
 
 # Mirror all windows vertically/horizontally
 super + {shift +,_} v
-    bspc desktop -F {vertical, horizontal}
+    bspc node @focused:/ -F {vertical, horizontal}
 
 # toggle fullscreen/floating
 super + {s,f}
-	bspc window -t {floating,fullscreen}
+	bspc node -t '~'{floating,fullscreen}
 
 # Toggle focus between last window/desktop
 super + {dead_abovering,Tab}
-	bspc {window,desktop} -f last
+	bspc {node,desktop} -f last
 
 # Swap the location of the last two windows
 super + apostrophe
-	bspc window -s last
+	bspc node -s last
 
 # Put the current window in the last manual split
 super + y
-	bspc window -w last.manual
+	bspc node -n last.!automatic
 
 # Move the current window to the largest split on screen
 super + m
-	bspc window -s biggest
+	bspc node -s biggest
 
 # Focus/Move 
 super + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
+	bspc node -{f,s} {west,south,north,east}
 
 # Cycle through the windows
 super + {comma,period}
-	bspc window -f {next,prev}
+	bspc node -f {next,prev}
 
 # Like rotate except it does not change the splits
 super + {_,shift + }c
-	bspc desktop -C {forward,backward}
+	bspc node @focused:/ -C {forward,backward}
 
 super + bracket{left,right}
 	bspc desktop -f {prev,next}
 
 # create manual plits
 super + ctrl + {h,j,k,l}
-	bspc window -p {left,down,up,right}
+	bspc node -p '~'{west,south,north,east}
 
 # Cancel preselection on window/all desktop
 super + ctrl + {_,shift + }space
-	bspc {window -p cancel,desktop -c}
+	bspc {node -p cancel,desktop -c}
 
 # Resize to create space
 super + alt + {h,j,k,l}
-	bspc window -e {left -10,down +10,up -10,right +10}
+	bspc node -e {left -10,down +10,up -10,right +10}
 
 # Resize to reduce space
 super + alt + shift + {h,j,k,l}
-	bspc window -e {right -10,up +10,down -10,left +10}
+	bspc node -e {right -10,up +10,down -10,left +10}
 
 # Set splitting ratio on window
 super + ctrl + {1-9}
-	bspc window -r 0.{1-9}
+	bspc node -r 0.{1-9}
 
 # change or move to desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} ^{1-9,10}
+	bspc {desktop -f,node -d} ^{1-9,10}
 
 ~button1
 	bspc pointer -g focus
