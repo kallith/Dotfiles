@@ -19,7 +19,7 @@ fi
 
 result=" $symbol ${array[1]} $(cut -d':' -f 1,2 <<< ${array[2]}) "
 if [[ $(( $battery_percentage <= 7 )) == "1" && ${array[0]} == "Discharging" ]]; then
-    notify-send -u critical "Battery low" "$result remaining"
+    notify-send -u critical "Battery low" "${result}remaining"
 fi
 result="%{U$COLOR}$result%{U-}"
 echo B$result
