@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 export PANEL_FIFO="/tmp/panel-fifo"
 export PATH=$PATH:${HOME}/.config/bspwm
@@ -9,30 +9,29 @@ PANEL_FONT_FAMILY="DejaVu Sans Mono:size=9"
 PANEL_FONT_FAMILY="Bitstream Vera Sans Mono:size=9"
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
 
-bspc config border_width        5
-bspc config window_gap         15
+bspc config border_width       3
+bspc config window_gap         0
 
 bspc config split_ratio         0.61803
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 bspc config focus_follows_pointer   true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
 
 bspc config apply_floating_atom true
 
 #bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor eDP1 -d 1 2 3 4 5 6 7 8 9 0
-#bspc monitor HDMI1 -d I II III IV V VI VII VIII IX X
+bspc monitor eDP1 -d web ii iii iv v vi vii viii ix mail
+bspc monitor HDMI1 -d I
 
 bspc rule -r $(bspc rule -l)
-#bspc rule -a Gimp desktop=^8 follow=on floating=on
-#bspc rule -a Chromium desktop=^2
-bspc rule -a floatterm floating=on center=true
-bspc rule -a sun-awt-X11-XFramePeer floating=on 
-bspc rule -a Skype floating=on
-bspc rule -a Steam floating=on
-bspc rule -a pavucontrol floating=on
-bspc rule -a spotify floating=on
+bspc rule -a "*":floatterm state=floating center=true
+bspc rule -a Skype state=floating
+bspc rule -a Steam state=floating
+bspc rule -a "*":pavucontrol state=floating
+bspc rule -a "*":spotify state=floating
 bspc rule -a Firefox -o desktop=1
 bspc rule -a Thunderbird -o desktop=0
 

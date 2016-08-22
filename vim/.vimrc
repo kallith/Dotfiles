@@ -1,6 +1,6 @@
 " vim:fdm=marker
 if v:progname =~? "gvim"
-    set guioptions=
+    set guioptions=c
     set guifont=Bitstream\ Vera\ Sans\ Mono\ 12,Fixed\ 12
 endif
 " evim exit {{{
@@ -14,13 +14,14 @@ set rtp+=~/.vim/bundle/Vundle.vim " runtime path to include vundle
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'              "Plugin manager
 Plugin 'tpope/vim-fugitive'             "git support
-Plugin 'chriskempson/base16-vim'        "colorschemes
-Plugin 'flazz/vim-colorschemes'         "colorschemes
+"Plugin 'chriskempson/base16-vim'        "colorschemes
+"Plugin 'flazz/vim-colorschemes'         "colorschemes
 Plugin 'lilydjwg/colorizer'             "display hexcolors inline
+Plugin 'morhetz/gruvbox'                "the colorscheme
 Plugin 'kien/ctrlp.vim'                 "fuzzy file finder
 Plugin 'LaTeX-Box-Team/LaTeX-Box'       "lightweight latex-plugin
 Plugin 'itchyny/lightline.vim'          "statusline
-Plugin 'scrooloose/nerdtree'            "file browser
+"Plugin 'scrooloose/nerdtree'            "file browser
 Plugin 'scrooloose/syntastic'           "syntax error checker
 Plugin 'vim-pandoc/vim-pandoc'          "markdown plugin
 Plugin 'vim-pandoc/vim-pandoc-syntax'   "with syntax highlighting
@@ -110,6 +111,16 @@ nnoremap Y y$
 "split line when not in C or /bin/*sh
 nnoremap K i<CR><Esc>
 " }}}
+" Disable arrows, get used to colemak boy {{{
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
+" }}}
 " Behaviour  {{{
 set mouse=a                     "enable mouse
 set vb t_vb=                    "visual bell
@@ -155,3 +166,4 @@ endfunction
 command! -bar RangerChooser call RangeChooser()
 nnoremap <leader>r :<C-U>RangerChooser<CR>
 " }}}
+
