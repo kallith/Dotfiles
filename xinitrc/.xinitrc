@@ -4,6 +4,7 @@ sh ~/.fehbg &
 
 # load X settings
 xrdb -merge ~/.Xresources &
+xrandr --dpi 168
 
 # start networkmanager system tray application
 nm-applet &
@@ -27,10 +28,9 @@ dunst -follow mouse &
 # move to separate file soon!™
 export EDITOR="vim"
 # scaling for hidpi
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
+#export GDK_SCALE=2
+#export GDK_DPI_SCALE=0.5
 export QT_DEVICE_PIXEL_RATIO=2
-xrandr --dpi 168
 
 if [[ $UID -ge 1000 && -d $HOME/bin && -z $(echo $PATH | grep -o $HOME/bin) ]]
 then
