@@ -103,14 +103,16 @@ ${line#?}\
 			wm_infos=""
 			IFS=':'
 			set -- ${line#?}
+            ind="-1"
 			while [ $# -gt 0 ] ; do
+                ind=$((ind+1))
 				item=$1
 				name=${item#?}
                 # rember to #define N 200 in lemonbar.c
                 # note to self shouldn't be hard to
                 # make the A stack dynamic 
                 oldname=$name
-                name="%{A:bspc desktop -f ${name}:} ${name} %{A}"
+                name="%{A:bspc desktop -f ${name}:} ${ind}: ${name} %{A}"
 				case $item in
 					M*)
 						# active monitor
@@ -165,10 +167,16 @@ ${line#?}\
                                 ;;
                         esac
 						;;
+                    T*)
+                        title="T=$oldname $title"
+                        ;;
+                    G*)
+                        title="G=$oldname $title"
+                        ;;
 				esac
 				shift
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}%{A4:bspc desktop -f prev:}%{A5:bspc desktop -f next:}${wm_infos}%{A}%{A} ${title}%{r}${mpd} ${email} ${internet} ${volume} ${battery} ${sys_infos} "
+	printf "%s\n" "%{l}%{A4:bspc desktop -f prev:}%{A5:bspc desktop -f next:}${wm_infos}%{A}%{A}${email} %{c}${title}%{r}${mpd} ${internet} ${volume} ${battery} ${sys_infos} "
 done
