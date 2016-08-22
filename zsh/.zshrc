@@ -60,7 +60,7 @@ DISABLE_AUTO_TITLE="true"
 # Add wisely, as too many plugins slow down shell startup.
 #
 #ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
-plugins=(git zsh-syntax-highlighting taskwarrior)# vi-mode)
+plugins=(git)# vi-mode)
 # 
 # # vi mode extra keybinds
 # bindkey '^P' up-history
@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source $HOME/.aliases
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export external env variables
 export CLASSPATH=".:/home/kalli/git/reir-ofl/eclipse/reiknirit/lib/algs4-package.jar:/home/kalli/git/reir-ofl/eclipse/reiknirit/lib/stdlib-package.jar"

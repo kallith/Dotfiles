@@ -1,3 +1,5 @@
+# stream torrent file
+alias mpv-stream='peerflix --mpv'
 # cputemp
 alias cputemp='sensors -u | grep temp1_input | cut -d" " -f4 | cut -d. -f1 | tail -n 1'
 # mpv alias
