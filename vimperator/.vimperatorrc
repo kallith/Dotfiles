@@ -10,6 +10,9 @@ set focuscontent
 set ignorecase=true
 set smartcase=true
 
+"temporary fix until issue #530 is resolved
+set cpt=l
+
 colorscheme vimpwhite
 
 noremap B :tabgroups switch 
