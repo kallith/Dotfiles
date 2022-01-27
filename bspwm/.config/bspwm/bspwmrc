@@ -2,39 +2,49 @@
 
 export PANEL_FIFO="/tmp/panel-fifo"
 export PATH=$PATH:${HOME}/.config/bspwm
-PANEL_HEIGHT=30
+PANEL_HEIGHT=32
 PANEL_FONT_FAMILY2="-xos4-terminus-medium-*-*-*-22-*-*-*-*-*-iso10646-1"
 PANEL_FONT_FAMILY="Liberation Mono:style=Regular:size=9"
 PANEL_FONT_FAMILY="DejaVu Sans Mono:size=9"
 PANEL_FONT_FAMILY="Bitstream Vera Sans Mono:size=9"
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT_FAMILY
 
-bspc config border_width       3
-bspc config window_gap         0
-
-bspc config split_ratio         0.61803
-bspc config borderless_monocle  true
-bspc config gapless_monocle     true
-bspc config focus_by_distance   true
+bspc config border_width            2
+bspc config window_gap              3
+bspc config split_ratio             0.61803
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
 bspc config focus_follows_pointer   true
-bspc config remove_disabled_monitors true
-bspc config remove_unplugged_monitors true
+bspc config pointer_follows_focus   false
+bspc config normal_border_color     #665c54
+bspc config active_border_color     #d5c4a1
+bspc config focused_border_color    #fbf1c7
 
-bspc config apply_floating_atom true
-
-#bspc monitor -d I II III IV V VI VII VIII IX X
-bspc monitor eDP1 -d web ii iii iv v vi vii viii ix mail
-bspc monitor HDMI1 -d I
+bspc monitor HDMI-0 -d 1 2 3
+bspc monitor DVI-I-1 -d 4 5 6
 
 bspc rule -r $(bspc rule -l)
 bspc rule -a "*":floatterm state=floating center=true
-bspc rule -a Skype state=floating
-bspc rule -a Steam state=floating
 bspc rule -a "*":pavucontrol state=floating
-bspc rule -a "*":spotify state=floating
 bspc rule -a Firefox -o desktop=1
-bspc rule -a Thunderbird -o desktop=0
 
+bspc config bottom_padding $PANEL_HEIGHT
+
+#programs
 pidof firefox || firefox & disown
-pidof thunderbird || thunderbird & disown
-panel &
+# terminal
+kitty &
+# discord
+discord --start-minimized &
+# panel
+tint2 &
+# nm tray icon
+nm-applet &
+# bluetooth tray
+blueman-applet &
+# pulseaudio tray
+pasystray &
+# desktop notifications
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+# audio post-process
+easyeffects --gapplication-service

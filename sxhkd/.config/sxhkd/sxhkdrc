@@ -11,16 +11,12 @@ super + shift + alt + R
     pkill -x panel; ${HOME}/.config/bspwm/bspwmrc
 
 # close window
-{super + shift + q, alt + F4}
+super + shift + q
 	bspc node -c
 
 # Switch between tiled/monacle layouts
 super + t
 	bspc desktop -l next
-
-# choose focused window propertie
-super + shift + t
-    dmenu-command-choice.sh "bspc node" "-t ~pseudo_tiled" "-g locked" "-g sticky" "-g private"
 
 # rotate the windows clockwise
 super + {_,shift + }r
@@ -39,8 +35,8 @@ super + {shift +,_} v
     bspc node @focused:/ -F {vertical, horizontal}
 
 # toggle fullscreen/floating
-super + {s,f}
-	bspc node -t '~'{floating,fullscreen}
+super + {s,f,p}
+	bspc node -t '~'{floating,fullscreen,pseudo_tiled}
 
 # Toggle focus between last window/desktop
 super + {dead_abovering,Tab}
@@ -77,17 +73,9 @@ super + bracket{left,right}
 super + ctrl + {h,j,k,l}
 	bspc node -p '~'{west,south,north,east}
 
-# Cancel preselection on window/all desktop
-super + ctrl + {_,shift + }space
-	bspc {node -p cancel,desktop -c}
-
-# Resize to create space
-super + alt + {h,j,k,l}
-	bspc node -e {left -10,down +10,up -10,right +10}
-
-# Resize to reduce space
-super + alt + shift + {h,j,k,l}
-	bspc node -e {right -10,up +10,down -10,left +10}
+## Cancel preselection on window/all desktop
+#super + ctrl + space
+#	bspc desktop -c
 
 # Set splitting ratio on window
 super + ctrl + {1-9}
@@ -97,25 +85,10 @@ super + ctrl + {1-9}
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} ^{1-9,10}
 
-~button1
-	bspc pointer -g focus
-
-super + button{1-3}
-	; bspc pointer -g {move,resize_side,resize_corner}
-
-super + !button{1-3}
-  bspc pointer -t %i, %i
-
-super + @button{1-3}
-	bspc pointer -u
-
 # increase/decrease the window gap
 super + {minus,plus}
     bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 3 ))
 
-# Rename workspae
-super + ctrl + r
-    bspc desktop -n $( dmenu -fn '-xos4-terminus-medium-*-*-*-30-*-*-*-*-*-*-*' -p "Rename workspace" < /dev/null)
 
 #
 # wm independent hotkeys
@@ -123,53 +96,34 @@ super + ctrl + r
 
 # Spawn (floating)? terminal
 super + {_,shift +} Return
-	urxvtc {_,-name floatterm} || (urxvtd -q -o -f && urxvtc)
+    kitty
 
-# Dmenu launcher
-super + {space,d}
-    dmenu_run -i -fn '-xos4-terminus-medium-*-*-*-30-*-*-*-*-*-*-*'
+# launcher
+super + space
+    rofi -show run -font "Inconsolata 12"
 
-# Dmenu launcher for .desktop files
-super + shift + d
-    i3-dmenu-desktop --dmenu="dmenu -i -l 10 -fn '-xos4-terminus-medium-*-*-*-30-*-*-*-*-*-*-*'"
+super + ctrl + space
+    rofi -show window -font "Inconsolata 12"
+
+super + alt + space
+    rofi -show drun -font "Inconsolata 12"
 
 XF86Audio{Lower,Raise}Volume
-    pactl set-sink-volume 0 {-,+}10%
+    pactl set-sink-volume 1 {-,+}5%
 
-# super+o is the side button
-{super + o,XF86AudioMute}
-    pactl set-sink-mute 0 toggle
+XF86AudioMute
+    pactl set-sink-mute 1 toggle
 
 super + shift + f
-    urxvtc -e zsh -c 'ranger'
+    nautilus
 
-super + Pause
-    dmenu-command-choice.sh systemctl suspend poweroff reboot
-
-# fn+f10(mod+p) screen buttons
-super + p; x
-    xrandr --output HDMI1 --off
-super + p; {h, j, k, l} 
-    xrandr --output HDMI1 --auto --{left-of,below,above,right-of} eDP1
-super + p; m 
-    xrandr --output HDMI1 --auto --output eDP1 --auto --same-as HDMI1
-
-super + shift + g
-    thunar
+super + x
+    systemctl suspend
 
 # Screenshot and move to dir
-{_,super +} @Print
-    scrot {_,-s} '%y-%m-%d-%H:%m:%S_$wx$h.png' -e 'mv $f ~/Pictures/screens/$f'
-
-# fn+{f11,f12} to change crightness
-XF86MonBrightness{Down,Up}
-    xbacklight {-,+}10% -time 0 -steps 1
+{_,super +,super + shift +} @Print
+    scrot {-s,-u,-m} '%y-%m-%d-%H:%m:%S_$wx$h.png' -e 'mv $f ~/Pictures/screens/$f'
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
-
-# inc/dec opacity of current window
-super + shift + {Up, Down}
-    compton-trans -c {+5,-- -5}
-

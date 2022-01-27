@@ -1,4 +1,0 @@
-#!/bin/bash
-mpd
-zscroll -l 20 -n -u -b "M ◾ " -d 0.3 -M "mpc status" -m "playing" -b "M ▶ " \
-    -s 1 -m "paused" -b "M ▷ " -s 0 "mpc current"
