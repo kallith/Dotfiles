@@ -1,0 +1,15 @@
+--- base.xml	2021-10-06 16:45:42.739787026 +0000
++++ /usr/share/X11/xkb/rules/base.xml	2021-10-06 16:49:48.219794649 +0000
+@@ -3920,6 +3920,12 @@
+             <description>Icelandic (Dvorak)</description>
+           </configItem>
+         </variant>
++        <variant>
++          <configItem>
++            <name>colemak</name>
++            <description>Icelandic (Colemak)</description>
++          </configItem>
++        </variant>
+       </variantList>
+     </layout>
+     <layout>
