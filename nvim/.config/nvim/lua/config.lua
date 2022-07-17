@@ -65,7 +65,7 @@ require'lspconfig'.sumneko_lua.setup{
             diagnostics = { globals = {'vim'} },
             telemetry = { enable = false },
             version = 'LuaJIT',
-            workspace = { library = vim.api.nvim_get_funtime_file("", true)},
+            workspace = { library = vim.api.nvim_get_runtime_file("", true)},
         }
     }
 }
