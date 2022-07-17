@@ -1,5 +1,7 @@
 " User interface
 set termguicolors
+set background=dark
+colorscheme gruvbox
 set number
 set cursorline
 set showtabline=1
@@ -38,4 +40,7 @@ nnoremap <silent> gk k
 nnoremap <silent> j gj
 nnoremap <silent> gj j
 
+" packer.nvim plugin manager
 lua require('plugins')
+" additional lua configuration
+lua require('config')
