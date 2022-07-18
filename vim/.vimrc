@@ -43,7 +43,7 @@ nnoremap <silent> k gk
 nnoremap <silent> j gj
 
 " Colorscheme
-set background=light
+set background=dark
 if (has("termguicolors"))
   set termguicolors
 endif
