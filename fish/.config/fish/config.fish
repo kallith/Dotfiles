@@ -3,7 +3,6 @@ if status is-interactive
 end
 
 pyenv init - | source
-=======
 # Start X at login
 if status is-login
     if test -z "$DISPLAY" -a "$XDG_VTNR" = 1
