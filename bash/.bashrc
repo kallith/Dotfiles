@@ -21,7 +21,6 @@ man() {
     LESS_TERMCAP_us=$'\e[01;32m' \
     command man "$@"
 }
-eval "$(pyenv init -)"
 
 
 # BEGIN_KITTY_SHELL_INTEGRATION

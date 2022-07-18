@@ -10,7 +10,7 @@ nitrogen --restore &
 # keybinds
 sxhkd -m -1 &
 #nvidia fan overrides
-nvidiafancontrol.sh 10 85 75 50 &
+nvidiafancontrol.sh 15 90 75 55 &
 
 # keyboard layout
 xset r rate 200 40
