@@ -1,0 +1,7 @@
+evdev:name:Heng Yu Technology Poker Pro S:*
+# capslock to esc
+    KEYBOARD_KEY_70039=esc
+# esc to grave
+    KEYBOARD_KEY_70029=grave
+# grave to capslock
+    KEYBOARD_KEY_70035=capslock
