@@ -8,6 +8,6 @@ trouble.setup({
     padding = false,
     group = false,
     auto_open = true,
-    auto_close = true,
+    auto_close = false,
     use_diagnostic_signs = true,
 })
