@@ -5,10 +5,9 @@ end
 
 bufferline.setup({
     options = {
-        middle_mouse_command = "Bdelete! %d",
         separator_style = "thin",
         show_close_icon = false,
         show_buffer_icons = false,
-        diagnostics = "nvim_lsp",
+        show_buffer_close_icons = false,
     },
 })
