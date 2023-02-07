@@ -39,23 +39,16 @@ keymap("v", "p", '"_dP', opts)
 
 -- Plugins --
 
--- NvimTree
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
--- Git
--- keymap("n", "<leader>gg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", opts)
--- keymap("n", "<leader>t", "<cmd>TroubleToggle<CR>")
-keymap("n", "<leader>t", "<cmd>ToggleTerm<CR>")
-
--- Comment
-keymap("n", "<leader>/", "<cmd>lua require('Comment.api').toggle_current_linewise()<CR>", opts)
-keymap("x", "<leader>/", '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>')
+-- Toggleable windows
+keymap("n", "<M-1>", "<cmd>ToggleTerm<CR>")
+keymap("n", "<M-2>", "<cmd>TroubleToggle<CR>")
+keymap("n", "<M-3>", ":NvimTreeToggle<CR>", opts)
 
 -- DAP
 keymap("n", "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", opts)

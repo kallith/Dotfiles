@@ -1,13 +1,13 @@
 local status_ok, trouble = pcall(require, "trouble")
 if not status_ok then
-	return
+    return
 end
 
 trouble.setup({
-    mode = "document_diagnostics",
+    mode = "workspace_diagnostics",
     padding = false,
     group = false,
-    auto_open = true,
+    auto_open = false,
     auto_close = false,
     use_diagnostic_signs = true,
 })
