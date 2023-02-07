@@ -12,6 +12,8 @@ vim.opt.cursorline = true
 vim.opt.signcolumn = "yes"
 -- only show status line in last window.
 vim.opt.laststatus = 3
+-- We have mode from lualine
+vim.opt.showmode = false
 -- maximum 
 vim.opt.pumheight = 10
 -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"

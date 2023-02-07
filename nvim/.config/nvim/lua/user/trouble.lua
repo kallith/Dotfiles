@@ -6,7 +6,7 @@ end
 trouble.setup({
     mode = "workspace_diagnostics",
     padding = false,
-    group = false,
+    group = true,
     auto_open = false,
     auto_close = false,
     use_diagnostic_signs = true,
