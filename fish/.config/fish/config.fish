@@ -10,6 +10,8 @@ if status is-login
     end
 end
 
+set -xU MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
 set -g __fish_git_prompt_char_stateseparator ''
 set -g __fish_git_prompt_color_branch brmagenta
 set -g __fish_git_prompt_color_cleanstate brgreen
