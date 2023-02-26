@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+STOW_DIR=${STOW_DIR:-$HOME}
+stow --dotfiles --restow --target=${STOW_DIR} $1
