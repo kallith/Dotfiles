@@ -1,0 +1,5 @@
+evdev:name:Logitech USB Keyboard:*
+# capslock to esc
+    KEYBOARD_KEY_70039=esc
+# esc to capslock
+    KEYBOARD_KEY_70029=capslock

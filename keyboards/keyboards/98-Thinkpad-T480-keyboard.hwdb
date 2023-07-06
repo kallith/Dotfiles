@@ -1,0 +1,5 @@
+evdev:name:AT Translated Set 2 keyboard:*
+# capslock to esc
+    KEYBOARD_KEY_3a=esc
+# esc to capslock
+    KEYBOARD_KEY_01=capslock
