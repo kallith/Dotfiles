@@ -1,4 +1,6 @@
 function fish_right_prompt
+    # Go up a line - left prompt has printed a newline.
+    tput sc; tput cuu1; tput cuf 2
 
     set -l vcs (fish_vcs_prompt '%s' 2>/dev/null)
 
@@ -12,4 +14,7 @@ function fish_right_prompt
 
     set_color normal
     string join " " -- $duration $vcs $d
+
+    # Restore cursor position
+    tput rc
 end
