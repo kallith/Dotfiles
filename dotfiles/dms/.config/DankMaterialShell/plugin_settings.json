@@ -1,0 +1,34 @@
+{
+  "dankKDEConnect": {
+    "enabled": true
+  },
+  "dankLauncherKeys": {
+    "enabled": true
+  },
+  "calculator": {
+    "enabled": true,
+    "trigger": "=",
+    "calcEngine": "default"
+  },
+  "commandRunner": {
+    "enabled": true,
+    "history": [
+      "wowup",
+      "reboot",
+      "warcraftlogs",
+      "nm-connection-editor"
+    ]
+  },
+  "hiddenBar": {
+    "enabled": true
+  },
+  "qcalCalendar": {
+    "enabled": true
+  },
+  "dankBitwarden": {
+    "enabled": true,
+    "trigger": "",
+    "noTrigger": false,
+    "loginAction": "copy:password"
+  }
+}
