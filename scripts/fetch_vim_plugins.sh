@@ -14,4 +14,4 @@ git clone https://tpope.io/vim/flagship.git
 vim -u NONE -c "helptags vim-flagship/doc" -c q
 git clone https://github.com/morhetz/gruvbox.git
 git clone https://github.com/itchyny/lightline.vim
-git clone https://github.com/shinchu/lightline-gruvbox.vim
+git clone https://github.com/vimpostor/vim-lumen
