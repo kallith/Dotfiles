@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-mkdir -p ~/.vim/pack/plugins/start
+mkdir -p ~/.local/share/vim/pack/plugins/start
 cd "$_"
 git clone https://tpope.io/vim/sensible.git
 git clone https://tpope.io/vim/fugitive.git

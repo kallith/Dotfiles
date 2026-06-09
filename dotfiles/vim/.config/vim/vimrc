@@ -1,3 +1,5 @@
+source $VIMRUNTIME/xdg.vim
+
 " user interface
 set number
 set cursorline
@@ -22,12 +24,6 @@ filetype on
 filetype indent on
 filetype plugin on
 
-" Backup swap and undo files
-set backup
-set undofile
-set backupdir=~/.vim/backup
-set directory=~/.vim/tmp
-set undodir=~/.vim/undo
 
 " misc
 set mouse=a
@@ -42,11 +38,14 @@ nnoremap Y y$
 nnoremap <silent> k gk
 nnoremap <silent> j gj
 
+" Backup swap and undo files
+set backup
+set undofile
+
 " Colorscheme
 if (has("termguicolors"))
   set termguicolors
 endif
-"let &t_ut=''
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_light="soft"
 let g:gruvbox_contrast_dark="soft"
@@ -59,3 +58,4 @@ autocmd OptionSet background
       \ execute 'source' globpath(&rtp, 'pack/plugins/start/gruvbox/autoload/lightline/colorscheme/gruvbox.vim')
       \ | call lightline#colorscheme() | call lightline#update()
 set noshowmode
+
