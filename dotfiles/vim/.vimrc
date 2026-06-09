@@ -43,11 +43,10 @@ nnoremap <silent> k gk
 nnoremap <silent> j gj
 
 " Colorscheme
-set background=dark
 if (has("termguicolors"))
   set termguicolors
 endif
-let &t_ut=''
+"let &t_ut=''
 let g:gruvbox_italic=1
 let g:gruvbox_contrast_light="soft"
 let g:gruvbox_contrast_dark="soft"
@@ -56,5 +55,7 @@ colorscheme gruvbox
 " Lightline
 let g:lightline = {}
 let g:lightline.colorscheme = 'gruvbox'
+autocmd OptionSet background
+      \ execute 'source' globpath(&rtp, 'pack/plugins/start/gruvbox/autoload/lightline/colorscheme/gruvbox.vim')
+      \ | call lightline#colorscheme() | call lightline#update()
 set noshowmode
-
