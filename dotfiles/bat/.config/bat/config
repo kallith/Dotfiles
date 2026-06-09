@@ -1,3 +1,6 @@
---theme="gruvbox-dark"
+--theme-dark gruvbox-dark
+--theme-light gruvbox-light
+--italic-text=always
 --tabs=4
---plain
+--style=plain
+# --style="changes,grid,header-filename,numbers,snip"
