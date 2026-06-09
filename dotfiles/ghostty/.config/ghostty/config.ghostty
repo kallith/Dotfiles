@@ -1,0 +1,14 @@
+window-theme = ghostty
+theme = dark:Gruvbox Dark,light:Gruvbox Light
+font-family = SauceCodePro Nerd Font
+gtk-tabs-location = bottom
+# gtk-titlebar-style = tabs
+focus-follows-mouse = true
+shell-integration-features = ssh-env,ssh-terminfo
+unfocused-split-opacity = 1.0
+window-padding-balance = true
+window-padding-color = extend-always
+window-inherit-working-directory = false
+window-inherit-font-size = false
+
+# keybind = ctrl+shift+d=toggle_quick_terminal
