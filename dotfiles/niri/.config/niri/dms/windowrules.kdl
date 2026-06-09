@@ -1,0 +1,20 @@
+// DMS Window Rules - Managed by DankMaterialShell
+// Do not edit manually - changes may be overwritten
+
+// @id=wr_1779531346176146824 @name=FFPWA-YoutubeMusic
+window-rule {
+    match app-id="^FFPWA-01KC9X82YNQWH84RY3GRMY6296$"
+    open-on-output "HDMI-A-1"
+}
+
+// @id=wr_1779531368804391332 @name=FFPWA-FacebookMessenger
+window-rule {
+    match app-id="^FFPWA-01KPE53GMTBVK3ZAR189G3DTHG$"
+    open-on-output "HDMI-A-1"
+}
+
+// @id=wr_1779531409054752997 @name=discord
+window-rule {
+    match app-id="^discord$"
+    open-on-output "HDMI-A-1"
+}
