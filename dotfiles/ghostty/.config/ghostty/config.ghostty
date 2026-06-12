@@ -4,11 +4,13 @@ font-family = SauceCodePro Nerd Font
 gtk-tabs-location = bottom
 # gtk-titlebar-style = tabs
 focus-follows-mouse = true
-shell-integration-features = ssh-env,ssh-terminfo
+shell-integration-features = ssh-env,ssh-terminfo,sudo
 unfocused-split-opacity = 1.0
 window-padding-balance = true
 window-padding-color = extend-always
 window-inherit-working-directory = false
 window-inherit-font-size = false
+app-notifications = no-clipboard-copy
 
-# keybind = ctrl+shift+d=toggle_quick_terminal
+keybind = ctrl+shift+i=new_split:auto
+keybind = ctrl+shift+r=equalize_splits
