@@ -7,10 +7,12 @@ focus-follows-mouse = true
 shell-integration-features = ssh-env,ssh-terminfo,sudo
 unfocused-split-opacity = 1.0
 window-padding-balance = true
-window-padding-color = extend-always
+window-padding-color = extend
 window-inherit-working-directory = false
 window-inherit-font-size = false
 app-notifications = no-clipboard-copy
+# Disable link previews except those where link can differ from text
+link-previews = osc8
 
 keybind = ctrl+shift+i=new_split:auto
 keybind = ctrl+shift+r=equalize_splits
