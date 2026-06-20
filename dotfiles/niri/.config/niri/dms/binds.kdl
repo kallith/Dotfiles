@@ -3,14 +3,14 @@ binds {
     Ctrl+Print hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "ipc" "call" "niri" "screenshotScreen"; }
     Mod+Space hotkey-overlay-title="App Launcher: Toggle" { spawn "dms" "ipc" "call" "spotlight" "toggle"; }
     Print hotkey-overlay-title="Screenshot: Interactive" { spawn "dms" "ipc" "call" "niri" "screenshot"; }
-    XF86AudioLowerVolume allow-when-locked=true hotkey-overlay-title="Volume Down" { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
-    XF86AudioMicMute hotkey-overlay-title="Volume Mute Toggle" allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "mute"; }
+    XF86AudioLowerVolume hotkey-overlay-title="Volume Down" allow-when-locked=true { spawn "dms" "ipc" "call" "audio" "decrement" "5"; }
+    XF86AudioMicMute allow-when-locked=true hotkey-overlay-title="Microphone Mute Toggle" { spawn "dms" "ipc" "call" "audio" "micmute"; }
     XF86AudioMute allow-when-locked=true hotkey-overlay-title="Volume Mute Toggle" { spawn "dms" "ipc" "call" "audio" "mute"; }
-    XF86AudioNext hotkey-overlay-title="Media: Next Track" allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "next"; }
+    XF86AudioNext allow-when-locked=true hotkey-overlay-title="Media: Next Track" { spawn "dms" "ipc" "call" "mpris" "next"; }
     XF86AudioPlay allow-when-locked=true hotkey-overlay-title="Media: Play/Pause" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
     XF86AudioPrev allow-when-locked=true hotkey-overlay-title="Media: Previous Track" { spawn "dms" "ipc" "call" "mpris" "previous"; }
     XF86AudioRaiseVolume allow-when-locked=true hotkey-overlay-title="Volume Up" { spawn "dms" "ipc" "call" "audio" "increment" "5"; }
-    XF86AudioStop allow-when-locked=true hotkey-overlay-title="Media: Stop" { spawn "dms" "ipc" "call" "mpris" "stop"; }
+    XF86AudioStop hotkey-overlay-title="Media: Stop" allow-when-locked=true { spawn "dms" "ipc" "call" "mpris" "stop"; }
     XF86MonBrightnessDown allow-when-locked=true hotkey-overlay-title="Brightness Down" { spawn "dms" "ipc" "call" "brightness" "decrement" "5" ""; }
-    XF86MonBrightnessUp hotkey-overlay-title="Brightness Up" allow-when-locked=true { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
+    XF86MonBrightnessUp allow-when-locked=true hotkey-overlay-title="Brightness Up" { spawn "dms" "ipc" "call" "brightness" "increment" "5" ""; }
 }

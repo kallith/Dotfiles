@@ -1,0 +1,4 @@
+set guifont=SauceCodePro\ Nerd\ Font\ Mono\ 12,Libration\ Mono\ 12,Monospace\ 12
+set guioptions-=m
+set guioptions-=T
+set guioptions+=d

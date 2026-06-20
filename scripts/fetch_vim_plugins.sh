@@ -15,3 +15,5 @@ vim -u NONE -c "helptags vim-flagship/doc" -c q
 git clone https://github.com/morhetz/gruvbox.git
 git clone https://github.com/itchyny/lightline.vim
 git clone https://github.com/vimpostor/vim-lumen
+vim -c "helptags coc.nvim/doc/ | q"
+git clone --branch release https://github.com/neoclide/coc.nvim.git --depth=1
