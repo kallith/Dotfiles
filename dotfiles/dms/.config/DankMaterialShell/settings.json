@@ -7,14 +7,14 @@
     "gruvboxMulti": {
       "dark": {
         "flavor": "classic-medium-dark",
-        "accent": "blue"
+        "accent": "green"
       },
       "light": {
         "flavor": "classic-medium-light",
         "accent": "blue"
       }
     },
-    "gnomeAdwaita": "teal",
+    "gnomeAdwaita": "slate",
     "catppuccin": {
       "dark": {
         "flavor": "mocha",
@@ -108,6 +108,23 @@
       "width": 100
     },
     {
+      "id": "brightnessSlider",
+      "enabled": true,
+      "width": 100,
+      "instanceId": "mq7abujkbl5kj1tv8ma7rwd4cfu9tl",
+      "deviceName": ""
+    },
+    {
+      "id": "wifi",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "bluetooth",
+      "enabled": true,
+      "width": 50
+    },
+    {
       "id": "audioOutput",
       "enabled": true,
       "width": 50
@@ -124,16 +141,6 @@
     },
     {
       "id": "nightMode",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "wifi",
-      "enabled": true,
-      "width": 50
-    },
-    {
-      "id": "bluetooth",
       "enabled": true,
       "width": 50
     }
@@ -263,12 +270,12 @@
   "acLockTimeout": 1800,
   "acSuspendTimeout": 5400,
   "acSuspendBehavior": 0,
-  "acProfileName": "",
-  "batteryMonitorTimeout": 0,
-  "batteryLockTimeout": 0,
-  "batterySuspendTimeout": 0,
-  "batterySuspendBehavior": 0,
-  "batteryProfileName": "",
+  "acProfileName": "1",
+  "batteryMonitorTimeout": 900,
+  "batteryLockTimeout": 1800,
+  "batterySuspendTimeout": 3600,
+  "batterySuspendBehavior": 2,
+  "batteryProfileName": "0",
   "batteryChargeLimit": 100,
   "lockBeforeSuspend": true,
   "loginctlLockIntegration": true,
@@ -406,7 +413,7 @@
   "updaterUseCustomCommand": false,
   "updaterCustomCommand": "",
   "updaterTerminalAdditionalParams": "",
-  "displayNameMode": "system",
+  "displayNameMode": "model",
   "screenPreferences": {
     "notifications": [
       "all"
@@ -428,7 +435,8 @@
   "niriOutputSettings": {
     "DP-3": {
       "focusAtStartup": true
-    }
+    },
+    "eDP-1": {}
   },
   "hyprlandOutputSettings": {},
   "displayProfiles": {},
@@ -506,6 +514,10 @@
           "id": "music",
           "enabled": true,
           "mediaSize": 1
+        },
+        {
+          "id": "battery",
+          "enabled": true
         },
         {
           "id": "controlCenterButton",
