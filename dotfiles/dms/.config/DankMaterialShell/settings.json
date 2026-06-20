@@ -62,7 +62,7 @@
   "blurBorderCustomColor": "#ffffff",
   "blurBorderOpacity": 0.35,
   "wallpaperFillMode": "Fill",
-  "blurredWallpaperLayer": true,
+  "blurredWallpaperLayer": false,
   "blurWallpaperOnOverview": false,
   "showLauncherButton": true,
   "showWorkspaceSwitcher": true,
@@ -124,6 +124,16 @@
     },
     {
       "id": "nightMode",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "wifi",
+      "enabled": true,
+      "width": 50
+    },
+    {
+      "id": "bluetooth",
       "enabled": true,
       "width": 50
     }
@@ -329,7 +339,7 @@
   "dockMaxVisibleApps": 0,
   "dockMaxVisibleRunningApps": 0,
   "dockShowOverflowBadge": true,
-  "notificationOverlayEnabled": false,
+  "notificationOverlayEnabled": true,
   "notificationPopupShadowEnabled": true,
   "notificationPopupPrivacyMode": false,
   "modalDarkenBackground": true,
@@ -403,6 +413,12 @@
     ],
     "dock": [
       "all"
+    ],
+    "wallpaper": [
+      "all"
+    ],
+    "notepad": [
+      "all"
     ]
   },
   "showOnLastDisplay": {
@@ -475,6 +491,10 @@
           "enabled": true
         },
         {
+          "id": "notepadButton",
+          "enabled": true
+        },
+        {
           "id": "clipboard",
           "enabled": true
         },
@@ -485,13 +505,13 @@
         {
           "id": "music",
           "enabled": true,
-          "mediaSize": 3
+          "mediaSize": 1
         },
         {
           "id": "controlCenterButton",
           "enabled": true,
-          "showNetworkIcon": false,
-          "showBluetoothIcon": false,
+          "showNetworkIcon": true,
+          "showBluetoothIcon": true,
           "showAudioPercent": false,
           "showBrightnessIcon": false,
           "showBrightnessPercent": false,

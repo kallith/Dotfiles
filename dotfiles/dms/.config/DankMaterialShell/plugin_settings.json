@@ -5,7 +5,18 @@
     "calcEngine": "default"
   },
   "hiddenBar": {
-    "enabled": true
+    "enabled": true,
+    "usePopout": false,
+    "popoutLayout": "row",
+    "autoExpand": true,
+    "collapseDelay": 1,
+    "hideIconPillWhenCollapsed": true,
+    "hideIconPillWhenExpanded": true,
+    "extendedTrigger": true,
+    "excludeTray": true,
+    "excludeClock": true,
+    "showRegionPreview": false,
+    "triggerAdjustment": 0
   },
   "dankBitwarden": {
     "enabled": true,
