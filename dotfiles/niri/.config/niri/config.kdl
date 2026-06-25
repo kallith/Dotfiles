@@ -214,10 +214,9 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
     open-focused false
 }
-
 window-rule {
-    match app-id="kitty"
-    draw-border-with-background false
+    match app-id=r#"^steam_app_"# title=r#"^World of Warcraft$"#
+    open-fullscreen true
 }
 layer-rule {
     match namespace="^quickshell$"
@@ -245,4 +244,4 @@ include "dms/cursor.kdl"
 // include "dms/layout.kdl"
 include "dms/outputs.kdl"
 include "dms/windowrules.kdl"
-include "dms/wpblur.kdl"
+

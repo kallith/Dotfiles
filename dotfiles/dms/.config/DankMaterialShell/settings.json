@@ -108,13 +108,6 @@
       "width": 100
     },
     {
-      "id": "brightnessSlider",
-      "enabled": true,
-      "width": 100,
-      "instanceId": "mq7abujkbl5kj1tv8ma7rwd4cfu9tl",
-      "deviceName": ""
-    },
-    {
       "id": "wifi",
       "enabled": true,
       "width": 50
@@ -514,10 +507,6 @@
           "id": "music",
           "enabled": true,
           "mediaSize": 1
-        },
-        {
-          "id": "battery",
-          "enabled": true
         },
         {
           "id": "controlCenterButton",
